@@ -10,3 +10,7 @@
 #root{
     font-family:genshin;
 }
+
+p{
+    padding-top: 0.25rem
+}
