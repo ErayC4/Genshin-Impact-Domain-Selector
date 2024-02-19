@@ -2,6 +2,7 @@ import "./index.css";
 import React from "react";
 import Domainselector from "./domainselector";
 import TopInformation from "./topInformation";
+import GenshinImpactArtifact from "./genshinArtifacts";
 function App() {
   return (
     <div className="relative h-screen w-screen">
@@ -13,6 +14,7 @@ function App() {
         <TopInformation />
         {/*the middle*/}
         <Domainselector />
+        <GenshinImpactArtifact />
       </div>
     </div>
   );
