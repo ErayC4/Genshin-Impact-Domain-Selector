@@ -1,6 +1,6 @@
 import "./index.css";
 import React from "react";
-import Domainselector from "./domainselector";
+import DomainSelector from "./domainselector";
 import TopInformation from "./topInformation";
 import GenshinImpactArtifact from "./genshinArtifacts";
 function App() {
@@ -13,7 +13,7 @@ function App() {
       <div className="absolute inset-0 backdrop-blur-lg">
         <TopInformation />
         {/*the middle*/}
-        <Domainselector />
+        <DomainSelector />
         <GenshinImpactArtifact />
       </div>
     </div>

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const GenshinImpactArtifact = () => {
   const baseUrl = "https://genshin.jmp.blue";
   const [artifactset, setartifactset] = useState([]);
-  const names = ["Adventurer", "Archaic Petra", "Blizzard Strayer"];
+  const names = ["Archaic Petra", "Blizzard Strayer"];
   const [imageIsOpen, setImageIsOpen] = React.useState(false);
 
   function handleClick() {
