@@ -3,6 +3,7 @@ import React from "react";
 import DomainSelector from "./domainselector";
 import TopInformation from "./topInformation";
 import GenshinImpactArtifact from "./genshinArtifacts";
+
 function App() {
   return (
     <div className="relative h-screen w-screen">
