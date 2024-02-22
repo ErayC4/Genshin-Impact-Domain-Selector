@@ -2,8 +2,6 @@ import "./index.css";
 import React from "react";
 import DomainSelector from "./domainselector";
 import TopInformation from "./topInformation";
-import GenshinImpactArtifact from "./genshinArtifacts";
-import RightSide from "./rightSide";
 
 function App() {
   return (
@@ -15,15 +13,8 @@ function App() {
       <div className="absolute inset-0 backdrop-blur-lg">
         <TopInformation />
         {/*the middle*/}
-        <div className="flex gap-12">
-          
-          <div className="w-[45%]">
-            <DomainSelector />
-          </div>
-          
-          
-          <RightSide />
-        </div>
+
+        <DomainSelector />
       </div>
     </div>
   );

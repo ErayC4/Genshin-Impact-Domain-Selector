@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import RightSide from "./rightSide";
 
 function DomainSelector() {
   // State variables
@@ -47,15 +48,16 @@ function DomainSelector() {
     setIsClicked(index === isClicked ? null : index);
   }
   return (
-    <div className="flex ml-12 mt-12 mb-12">
+    <div className="flex ml-12 mt-12 mb-12 gap-12">
       {/*links */}
-      <div className="w-full">
+      <div className="w-[45%]">
         {domain.map((domainObject) =>
           // Iteriere über jedes Anforderungsobjekt in der Domäne
           domainObject.requirements.map((requirement, index) => (
             // Iteriere über jedes Anforderungsniveau und wiederhole den Block entsprechend
             <div className="pb-4" key={index}>
               <div onClick={() => handleClick(index)}>
+                
                 {index === isClicked ? (
                   // Inhalt für den Fall, dass isClicked true ist
                   <div className="w-full scale-[1.04] transition-all duration-150 shadow-md shadow-white bg-amber-50 px-4 border-2 ring ring-white ring-opacity-100 border-gray-300">
@@ -94,7 +96,10 @@ function DomainSelector() {
           ))
         )}
       </div>
-      
+      <div className="w-[55%]">
+      <RightSide clickedIndex={isClicked}/>
+
+      </div>
     </div>
   );
 }
