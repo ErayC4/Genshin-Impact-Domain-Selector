@@ -16,9 +16,12 @@ function App() {
         <TopInformation />
         {/*the middle*/}
         <div className="flex gap-12">
+          
           <div className="w-[45%]">
             <DomainSelector />
           </div>
+          
+          
           <RightSide />
         </div>
       </div>

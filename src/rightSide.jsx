@@ -35,7 +35,11 @@ function RightSide() {
     <div className="mt-12 mr-12">
       <div className="flex">
         <img className="object-cover object-center h-52 w-72 border-2 border-gray-400 " src="/images/Domain_Cecilia_Garden.webp" alt="" />
-        
+        {domain.map((domainObject, index)=>(
+          <div>
+            {domainObject.name}
+          </div>
+        ))}
       </div>
     </div>
   );
