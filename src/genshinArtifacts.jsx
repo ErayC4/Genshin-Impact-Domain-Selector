@@ -10,13 +10,11 @@ function GenshinImpactArtifact ({clickedIndex, domainRewardInformation}) {
                     {reward.details.map((detail, detailIndex) => (
                       <div key={detailIndex}>
                         <p>Level: {detail.level}</p>
-                        <p>
-                          Adventure Experience: {detail.adventureExperience}
-                        </p>
-                        <p>
-                          Companionship Experience:
-                          {detail.companionshipExperience}
-                        </p>
+                        <div>
+                          <img src="" alt="" />
+                        {detail.companionshipExperience}
+
+                        </div>
                         <p>Mora: {detail.mora}</p>
                         <div>
                           {detail.drops &&

@@ -2,18 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 import RightSide from "./rightSide";
 import GenshinImpactArtifact from "./genshinArtifacts";
-import DomainSelector from "./domainselector";
+import DomainLevelSelector from "./domainLevelSelctor";
 
 function DomainInformation() {
-  // State variables
-
+  const [isClicked, setIsClicked] = useState(null);
   const [everyDomainInformation, setEveryDomainInformation] = useState([]);
 
   // Constants
   const baseUrl = "https://genshin.jmp.blue";
   const domainName = "Valley of Remembrance";
-
-
 
   // Fetch domains on component mount
   useEffect(() => {
@@ -38,27 +35,36 @@ function DomainInformation() {
     fetchDomains();
   }, []);
 
-
+  function handleClick(index) {
+    setIsClicked(index === isClicked ? null : index);
+  }
 
   return (
-    <div className="flex ml-12 mt-12 mb-12 gap-12">
-      {/*links */}
-      <div className="w-[45%]">
+    <div className="">
+      {everyDomainInformation.map((domainObject, domainIndex) => (
 
-
-         {everyDomainInformation.map((domainObject, index) => (
-          // Iteriere über jedes Anforderungsobjekt in der Domäne
-          <div key={index}>
-            <DomainSelector domainSelectorInformation={domainObject}/>
-            <GenshinImpactArtifact domainRewardInformation={domainObject} />
-            
-            
+        <div className="flex ml-12 mt-12 mb-12 gap-12">
+          <div className="w-[45%]" key={domainIndex}>
+            {domainObject.requirements.map((requirement, requirementIndex) => (
+              <div className="pb-4" key={requirementIndex}>
+                <div onClick={() => handleClick(requirementIndex)}>
+                  <DomainLevelSelector
+                    isClicked={isClicked === requirementIndex}
+                    domainObject={domainObject}
+                    requirement={requirement}
+                    index={requirementIndex}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-        
-      </div>
-      <div className="w-[55%]">
-      </div>
+
+          <div className="w-[55%]">
+            <RightSide clickedIndex={isClicked} />
+            <GenshinImpactArtifact domainRewardInformation={domainObject} />
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
