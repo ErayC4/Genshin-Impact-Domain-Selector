@@ -15,6 +15,7 @@ function Elements({elementTypes}) {
   }
   return (
     <div className='flex justify-end gap-2'>
+
       {elements.map((element, index) => (
         <div key={index}>
           <img className='w-10 p-1 rounded-lg bg-slate-600' src={elementToPng[element]} alt="" />

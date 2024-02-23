@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const GenshinImpactArtifact = () => {
+function GenshinImpactArtifact ({clickedIndex}) {
   const baseUrl = "https://genshin.jmp.blue";
   const [artifactset, setartifactset] = useState([]);
   const names = ["Archaic Petra", "Blizzard Strayer"];

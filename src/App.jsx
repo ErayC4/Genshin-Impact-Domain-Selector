@@ -1,6 +1,6 @@
 import "./index.css";
 import React from "react";
-import DomainSelector from "./domainselector";
+import DomainInformation from "./domainInformation";
 import TopInformation from "./topInformation";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         <TopInformation />
         {/*the middle*/}
 
-        <DomainSelector />
+        <DomainInformation />
       </div>
     </div>
   );

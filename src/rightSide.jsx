@@ -62,6 +62,9 @@ function RightSide({ clickedIndex }) {
 
             <div className="w-full border-t border-b border-slate-400 mt-4">
               <div className="my-1">
+                <div>
+                  
+                </div>
                 {clickedIndex >= 2 ? (
                   <div>
                     <div className="flex items-center justify-between">
