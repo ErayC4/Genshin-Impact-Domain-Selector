@@ -1,37 +1,47 @@
 import React, { useState, useEffect } from "react";
+import Artifacts from "./artifacts";
 
-function GenshinImpactArtifact ({clickedIndex, domainRewardInformation}) {
-
+function GenshinImpactArtifact({ clickedIndex, domainRewardInformation }) {
+  console.log(clickedIndex);
   return (
     <div>
+      <p className="text-white text-xl py-2">Possible Rewards: </p>
       {domainRewardInformation.rewards.map((reward, index) => (
-              <div key={index}>
-                  <div>
-                    {reward.details.map((detail, detailIndex) => (
-                      <div key={detailIndex}>
-                        <p>Level: {detail.level}</p>
-                        <div>
-                          <img src="" alt="" />
-                        {detail.companionshipExperience}
+        <div key={index}>
+          <div>
+            {reward.details.map((detail, detailIndex) => (
+              <div key={detailIndex}>
+                {clickedIndex === detail.level - 1 && (
+                  <div className="flex gap-4">
+                    <div>
+                      <img className="w-24 rounded-lg absolute" src="/images/domainRewards/mora.jpg" alt="" />
+                      <p className="relative text-white text-center w-24 mt-16 rounded-b-lg bg-gray-700 bg-opacity-50">{detail.mora}</p>
+                    </div>
 
-                        </div>
-                        <p>Mora: {detail.mora}</p>
-                        <div>
-                          {detail.drops &&
-                            detail.drops.map((drop, dropIndex) => (
-                              <div key={dropIndex}>
-                                <p>Name: {drop.name}</p>
-                                <p>Rarity: {drop.rarity}</p>
-                              </div>
-                            ))}
-                        </div>
-                      </div>
-                    ))}
+                    <div>
+                      <img className="w-24 rounded-lg absolute" src="/images/domainRewards/companionShipXP.jpg" alt="" />
+                      <p className="relative text-white text-center w-24 mt-16 rounded-b-lg bg-gray-700 bg-opacity-50">{detail.companionshipExperience}</p>
+                    </div>
+                    <div>
+                      {
+                        detail.drops.map((drop, dropIndex) => (
+                          <div key={dropIndex}>
+                            <Artifacts
+                              artifactNames={drop.name}
+                              artifactRarity={drop.rarity}
+                            />
+                          </div>
+                        ))}
+                    </div>
                   </div>
+                )}
               </div>
             ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
-};
+}
 
 export default GenshinImpactArtifact;

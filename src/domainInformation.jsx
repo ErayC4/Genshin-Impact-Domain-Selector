@@ -43,7 +43,7 @@ function DomainInformation() {
     <div className="">
       {everyDomainInformation.map((domainObject, domainIndex) => (
 
-        <div className="flex ml-12 mt-12 mb-12 gap-12">
+        <div className="flex ml-12 mt-12 mb-12 gap-16">
           <div className="w-[45%]" key={domainIndex}>
             {domainObject.requirements.map((requirement, requirementIndex) => (
               <div className="pb-4" key={requirementIndex}>
@@ -61,7 +61,7 @@ function DomainInformation() {
 
           <div className="w-[55%]">
             <RightSide clickedIndex={isClicked} />
-            <GenshinImpactArtifact domainRewardInformation={domainObject} />
+            <GenshinImpactArtifact domainRewardInformation={domainObject} clickedIndex={isClicked}/>
           </div>
         </div>
       ))}

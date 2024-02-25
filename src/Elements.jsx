@@ -18,7 +18,7 @@ function Elements({elementTypes}) {
 
       {elements.map((element, index) => (
         <div key={index}>
-          <img className='w-10 p-1 rounded-lg bg-slate-600' src={elementToPng[element]} alt="" />
+          <img className='w-10 p-1 rounded-lg bg-gray-700' src={elementToPng[element]} alt="" />
         </div>
       ))}
     </div>

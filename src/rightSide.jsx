@@ -43,7 +43,7 @@ function RightSide({ clickedIndex }) {
 
   return (
     <div className="mr-12">
-      <div className="ml-4">
+      <div>
         {domain.map((domainObject) => (
           <div>
             <div className="text-xl flex gap-4">
