@@ -19,10 +19,10 @@ function GenshinImpactArtifact({ clickedIndex, domainRewardInformation }) {
                     </div>
 
                     <div>
-                      <img className="w-24 rounded-lg absolute" src="/images/domainRewards/companionShipXP.jpg" alt="" />
-                      <p className="relative text-white text-center w-24 mt-16 rounded-b-lg bg-gray-700 bg-opacity-50">{detail.companionshipExperience}</p>
+                      <img className="w-24 h-24 rounded-lg absolute" src="/images/domainRewards/companionShipXP.jpg" alt="" />
+                      <p className="relative text-white text-center w-24 mt-[4.25rem] rounded-b-lg bg-gray-700 bg-opacity-50">{detail.companionshipExperience}</p>
                     </div>
-                    <div>
+                    <div className="flex gap-4">
                       {
                         detail.drops.map((drop, dropIndex) => (
                           <div key={dropIndex}>

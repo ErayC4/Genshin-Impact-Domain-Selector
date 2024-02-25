@@ -1,41 +1,25 @@
 import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
 
 function Artifacts({ artifactNames, artifactRarity }) {
-
-  const [artifactset, setArtifactset] = useState(artifactNames);
-
-  useEffect(() => {
-    // Fetching artifacts
-    const fetchArtifacts = async () => {
-      try {
-        const response = await fetch("https://genshin.jmp.blue/artifacts/all");
-        const data = await response.json();
-
-        // includes guckt ob names das artifact aus der artifact.name liste übereinstimmt, wenn ja gibt es true wenn ncith false züruck
-        const filteredArtifacts = data.filter((artifact) =>
-          artifactset.includes(artifact.name)
-        );
-
-        setArtifactset(filteredArtifacts);
-      } catch (error) {
-        console.error("Error fetching artifacts:", error);
-      }
-    };
-
-    fetchArtifacts();
-  }, []);
-
-  console.log(artifactNames)
-
+  // replaces " " with - and puts it lowercase
+  const modifiedArtifactString = artifactNames
+    .toLowerCase()
+    .replace(/\s+/g, "-");
   return (
     <div>
-      <div className="flex">
-        <img className="w-24" src="/images/domainRewards/fourStarBg.png" alt="" />
-        {artifactNames}
-        {artifactRarity}
-      </div>
+      {
+        <img
+        className="w-24 rounded-lg absolute"
+        src="/images/domainRewards/fourStarBg.png"
+        alt=""
+      />
+      }
+      
+      <img
+        className="relative w-24 rounded-b-lg"
+        src={`https://genshin.jmp.blue/artifacts/${modifiedArtifactString}/flower-of-life`}
+        alt=""
+      />
     </div>
   );
 }
