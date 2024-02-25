@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Artifacts from "./artifacts";
 
 function GenshinImpactArtifact({ clickedIndex, domainRewardInformation }) {
-  console.log(clickedIndex);
   return (
     <div>
       <p className="text-white text-xl py-2">Possible Rewards: </p>

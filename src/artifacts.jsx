@@ -5,22 +5,39 @@ function Artifacts({ artifactNames, artifactRarity }) {
   const modifiedArtifactString = artifactNames
     .toLowerCase()
     .replace(/\s+/g, "-");
+
+  console.log(artifactRarity)
+  
+
+  function handleRarity(){
+    if(artifactRarity === "3/4"){
+       return ["three", "four"]
+    }  
+    else {
+      return ["four", "five"]
+    }
+  }
+  
+    
+
   return (
     <div>
-      {
-        <img
-        className="w-24 rounded-lg absolute"
-        src="/images/domainRewards/fourStarBg.png"
-        alt=""
-      />
-      }
-      
-      <img
-        className="relative w-24 rounded-b-lg"
-        src={`https://genshin.jmp.blue/artifacts/${modifiedArtifactString}/flower-of-life`}
-        alt=""
-      />
+      {handleRarity().map((level) => (
+        <div key={level}>
+          <img
+            className="w-24 h-24 rounded-lg absolute"
+            src={`/images/domainRewards/${level}StarBg.png`}
+            alt=""
+          />
+          <img
+            className="relative w-24 h-24 rounded-b-lg"
+            src={`https://genshin.jmp.blue/artifacts/${modifiedArtifactString}/flower-of-life`}
+            alt=""
+          />
+        </div>
+      ))}
     </div>
+    
   );
 }
 
