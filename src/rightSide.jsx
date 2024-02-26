@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Elements from "./Elements";
+import Elements from "./elements";
 
-function RightSide({ clickedIndex }) {
-  const [domain, setDomain] = useState([]);
-
-  // Constants
-  const baseUrl = "https://genshin.jmp.blue";
-  const domainName = "Cecilia Garden";
+function RightSide({ clickedIndex, domain }) {
 
   const convertToRoman = (num) => {
     const romanNumerals = ["I", "II", "III", "IV", "V", "VI"];
@@ -18,28 +13,7 @@ function RightSide({ clickedIndex }) {
     }
   };
 
-  // Fetch domains on component mount
-  useEffect(() => {
-    const fetchDomains = async () => {
-      try {
-        // Fetch all domains
-        const response = await fetch(`${baseUrl}/domains/all`);
-        const data = await response.json();
-
-        // Filter domains based on the specified domainName
-        const filteredDomains = data.filter(
-          (domain) => domain.name === domainName
-        );
-
-        // Set the filtered domains in the state
-        setDomain(filteredDomains);
-      } catch (error) {
-        console.error("Error fetching domains:", error);
-      }
-    };
-
-    fetchDomains();
-  }, []);
+  
 
   return (
     <div className="mr-12">

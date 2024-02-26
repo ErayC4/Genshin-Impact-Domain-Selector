@@ -12,8 +12,8 @@ function DomainInformation() {
   const baseUrl = "https://genshin.jmp.blue";
   const domainName = "Valley of Remembrance";
   let domainMaxLvL;
-  function something(domainLevels){
-    domainMaxLvL = domainLevels 
+  function something(domainLevels) {
+    domainMaxLvL = domainLevels;
   }
 
   // Fetch domains on component mount
@@ -50,7 +50,6 @@ function DomainInformation() {
           <div className="w-[45%]" key={domainIndex}>
             {domainObject.requirements.map((requirement, requirementIndex) => (
               <div className="pb-4" key={requirementIndex}>
-
                 <div onClick={() => handleClick(requirementIndex)}>
                   <DomainLevelSelector
                     isClicked={isClicked === requirementIndex}
@@ -65,7 +64,10 @@ function DomainInformation() {
           </div>
 
           <div className="w-[55%]">
-            <RightSide clickedIndex={isClicked} />
+            <RightSide
+              domain={everyDomainInformation}
+              clickedIndex={isClicked}
+            />
             <GenshinImpactArtifact
               domainRewardInformation={domainObject}
               clickedIndex={isClicked}

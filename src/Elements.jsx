@@ -5,20 +5,20 @@ function Elements({elementTypes}) {
   const elements = elementTypes
 
   const elementToPng = {
-    Pyro: '/images/elements/Element_Pyro.png',
-    Cryo: '/images/elements/Element_Cryo.png',
-    Electro: '/images/elements/Element_Electro.png',
-    Hydro: '/images/elements/Element_Hydro.png',
-    Geo: '/images/elements/Element_Geo.png',
-    Dendro: '/images/elements/Element_Dendro.png',
-    Anemo: '/images/elements/Element_Anemo.png',
+    Pyro: 'Pyro.png',
+    Cryo: 'Cryo.png',
+    Electro: 'Electro.png',
+    Hydro: 'Hydro.png',
+    Geo: 'Geo.png',
+    Dendro: 'Dendro.png',
+    Anemo: 'Anemo.png',
   }
   return (
     <div className='flex justify-end gap-2'>
 
       {elements.map((element, index) => (
         <div key={index}>
-          <img className='w-10 p-1 rounded-lg bg-gray-700' src={elementToPng[element]} alt="" />
+          <img className='w-10 p-1 rounded-lg bg-gray-700' src={`/images/elements/Element_${elementToPng[element]}`} alt="" />
         </div>
       ))}
     </div>

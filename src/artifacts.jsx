@@ -24,10 +24,21 @@ function Artifacts({ artifactNames, artifactRarity, clickedIndex, domainMaxLvL }
     
 
   return (
-    <div>
+    <div className="flex gap-4">
       {handleRarity().map((level) => (
         <div key={level}>
           <img
+            className="w-24 h-24 rounded-lg absolute"
+            src={`/images/domainRewards/${level}StarBg.png`}
+            alt=""
+          />
+          <img
+            className="relative w-24 h-24 rounded-b-lg"
+            src={`https://genshin.jmp.blue/artifacts/${modifiedArtifactString}/flower-of-life`}
+            alt=""
+          />
+
+<img
             className="w-24 h-24 rounded-lg absolute"
             src={`/images/domainRewards/${level}StarBg.png`}
             alt=""

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Artifacts from "./artifacts";
+import './index.css'
 
 function GenshinImpactArtifact({ clickedIndex, domainRewardInformation, domainMaxLvL }) {
   return (
