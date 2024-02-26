@@ -1,6 +1,6 @@
 import React from "react";
 
-function Artifacts({ artifactNames, artifactRarity }) {
+function Artifacts({ artifactNames, artifactRarity, clickedIndex, domainMaxLvL }) {
   // replaces " " with - and puts it lowercase
   const modifiedArtifactString = artifactNames
     .toLowerCase()
@@ -13,8 +13,11 @@ function Artifacts({ artifactNames, artifactRarity }) {
     if(artifactRarity === "3/4"){
        return ["three", "four"]
     }  
-    else {
+    else if(artifactRarity === "4/5"&& (domainMaxLvL - 2 < clickedIndex)){
       return ["four", "five"]
+    }
+    else{
+      return ["four"]
     }
   }
   
