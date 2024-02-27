@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import RightSide from "./rightSide";
 import GenshinImpactArtifact from "./genshinArtifacts";
 import DomainLevelSelector from "./domainLevelSelctor";
+import Buttons from "./buttons";
 
 function DomainInformation() {
   const [isClicked, setIsClicked] = useState(null);
@@ -10,7 +11,7 @@ function DomainInformation() {
 
   // Constants
   const baseUrl = "https://genshin.jmp.blue";
-  const domainName = "Valley of Remembrance";
+  const domainName = "The Lost Valley";
   let domainMaxLvL;
   function something(domainLevels) {
     domainMaxLvL = domainLevels;
@@ -68,12 +69,16 @@ function DomainInformation() {
               domain={everyDomainInformation}
               clickedIndex={isClicked}
             />
+            <div>
             <GenshinImpactArtifact
               domainRewardInformation={domainObject}
               clickedIndex={isClicked}
               domainMaxLvL={domainMaxLvL}
             />
-            {console.log(domainMaxLvL)}
+            </div>
+            <div class="fixed bottom-0 right-0 mb-8 mr-12">
+  <Buttons />
+</div>
           </div>
         </div>
       ))}
