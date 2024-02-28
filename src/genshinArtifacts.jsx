@@ -1,7 +1,36 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import Artifacts from "./artifacts";
 
 function GenshinImpactArtifact({ clickedIndex, domainRewardInformation, domainMaxLvL }) {
+  const containerRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [offset, setOffset] = useState(0);
+  const [finalOffset, setFinalOffset] = useState(0);
+
+  function handleMouseDown(e) {
+    setIsDragging(true);
+    setStartX(e.pageX);
+  }
+
+  function handleMouseMove(e) {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX;
+    const newOffset = x - startX + finalOffset;
+    setOffset(newOffset);
+  }
+
+  function handleMouseUp() {
+    if (isDragging) {
+      setIsDragging(false);
+      setFinalOffset(offset);
+    }
+  }
+
+  const styles = {
+    transform: `translateX(${offset}px)`,
+  };
   return (
     <div>
       <p className="text-white text-xl py-2">Possible Rewards: </p>
@@ -12,7 +41,12 @@ function GenshinImpactArtifact({ clickedIndex, domainRewardInformation, domainMa
               {reward.details.map((detail, detailIndex) => (
                 <div key={detailIndex}>
                   {clickedIndex === detail.level - 1 && (
-                    <div className="flex gap-4">
+                    <div style={styles} className="flex gap-4 overflow-hidden" ref={containerRef}
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseUp={handleMouseUp}
+                    onMouseLeave={handleMouseUp}>
+                      
                       <div>
                         <img className="w-24 rounded-lg absolute" src="/images/domainRewards/mora.jpg" alt="" />
                         <p className="relative text-white text-center w-24 mt-16 rounded-b-lg bg-gray-700 bg-opacity-50">{detail.mora}</p>
